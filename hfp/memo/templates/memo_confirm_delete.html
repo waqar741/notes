@@ -9,6 +9,6 @@ Memo
 <form method="post">
     {% csrf_token %}
     <button class="btn btn-danger">Delete</button>
-    <button href="{% url 'memo_list'%}" class="btn btn-success">Back</button>
+    <button href="{% url 'memo:memo_list'%}" class="btn btn-success">Back</button>
 </form>
 {% endblock %}

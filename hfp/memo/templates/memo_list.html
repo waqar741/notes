@@ -9,7 +9,7 @@
   <h2 class="text-center mb-4">Notes</h2>
 
   <div class="text-center mb-4">
-    <a href="{% url 'memo_create' %}" class="btn btn-primary">Create New Note</a>
+    <a href="{% url 'memo:memo_create' %}" class="btn btn-primary">Create New Note</a>
   </div>
 
   <div class="row justify-content-center g-4">
@@ -20,7 +20,7 @@
              <p class="card-text fw-semibold mb-3">{{ memo.title }}</p> 
              
              {% if memo.photo %}
-               <img src="{{ memo.photo }}" 
+               <img src="{{ API_BASE_URL }}{{ memo.photo }}" 
                     class="card-img my-3 mx-auto d-block" 
                     alt="Memo image" 
                     style="max-height:200px; object-fit:cover; width:auto;">
@@ -34,8 +34,8 @@
           {% endif %}
           
           <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
-             <a href="{% url 'memo_update' memo.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
-             <a href="{% url 'memo_delete' memo.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+             <a href="{% url 'memo:memo_update' memo.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+             <a href="{% url 'memo:memo_delete' memo.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
           </div>
         </div>
       </div>

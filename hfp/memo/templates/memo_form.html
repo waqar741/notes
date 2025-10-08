@@ -19,7 +19,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <div class="d-flex justify-content-between mt-3">
-                <a href="{% url 'memo_list' %}" class="btn btn-outline-primary">← Back to List</a>
+                <a href="{% url 'memo:memo_list' %}" class="btn btn-outline-primary">← Back to List</a>
                 <button class="btn btn-outline-success" type="submit">Save</button>
             </div>
         </form>

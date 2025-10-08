@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'memo',
 ]
 
-# API_BASE_URL = os.environ.get("HFP_API_BASE", "http://127.0.0.1:8000/")
 
 
 MIDDLEWARE = [
@@ -103,6 +102,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+API_BASE_URL = "http://127.0.0.1:8001"
+API_BASE_URL = os.environ.get("API_BASE_URL", "http://127.0.0.1:8001")
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
