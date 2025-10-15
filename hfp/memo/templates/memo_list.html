@@ -17,7 +17,8 @@
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm d-flex flex-column">
           <div class="card-body d-flex flex-column text-center">
-             <p class="card-text fw-semibold mb-3">{{ memo.title }}</p> 
+             <h5 class="card-title">{{ memo.title }}</h5>
+             <p class="card-text">{{ memo.content|truncatewords:20 }}</p>
              
              {% if memo.photo %}
                <img src="{{ API_BASE_URL }}{{ memo.photo }}" 

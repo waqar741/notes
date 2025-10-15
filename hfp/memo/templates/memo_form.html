@@ -4,26 +4,47 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Add or Edit Your Note</h2>
+    <h2 class="text-center mb-4">
+        {% if memo %}
+            ✏️ Edit Note
+        {% else %}
+            📝 Create New Note
+        {% endif %}
+    </h2>
 
     <div class="card shadow p-4">
-        <h4 class="mb-3">
-            {% if is_edit %}
-                ✏️ Edit Note
-            {% else %}
-                📝 Create Note
-            {% endif %}
-        </h4>
-
         <form method="post" enctype="multipart/form-data" class="form">
             {% csrf_token %}
-            {{ form.as_p }}
-            <div class="d-flex justify-content-between mt-3">
+            
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" 
+                       value="{{ memo.title|default:'' }}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" name="content" rows="6">{{ memo.content|default:'' }}</textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label for="photo" class="form-label">Attach Photo (Optional)</label>
+                <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                {% if memo.photo %}
+                    <div class="mt-2">
+                        <p>Current photo:</p>
+                        <img src="{{ API_BASE_URL }}{{ memo.photo }}" alt="Current memo photo" style="max-height: 200px;">
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="d-flex justify-content-between mt-4">
                 <a href="{% url 'memo:memo_list' %}" class="btn btn-outline-primary">← Back to List</a>
-                <button class="btn btn-outline-success" type="submit">Save</button>
+                <button type="submit" class="btn btn-success">
+                    {% if memo %}Update{% else %}Create{% endif %} Note
+                </button>
             </div>
         </form>
     </div>
 </div>
 {% endblock %}
-

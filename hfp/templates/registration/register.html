@@ -1,15 +1,10 @@
 {% extends "layout.html" %}
 
-{% block content%}
+{% block content %}
 <div class="container mt-5" style="max-width: 500px;">
     <div class="card shadow p-4">
         <h2 class="text-center mb-4">Register an Account</h2>
-        {% if error %}
-            <div class="alert alert-danger" role="alert">
-                {{ error }}
-            </div>
-        {% endif %}
-
+        
         <form method="post">
             {% csrf_token %}
             <div class="mb-3">
@@ -24,8 +19,12 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-               <button type="submit" class="btn btn-primary w-100">Register</button>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
         </form>
+        
+        <div class="text-center mt-3">
+            <p>Already have an account? <a class="btn btn-outline-success" href="{% url 'memo:login' %}">Login Here</a></p>
+        </div>
     </div>
 </div>
-{% endblock%}
+{% endblock %}

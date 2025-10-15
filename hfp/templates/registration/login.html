@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 
-{% block content%}
-<h2>Login Form</h2>
-<form method="post">
+{% block content %}
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Login</h2>
+        
+        <form method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
@@ -14,5 +17,10 @@
             </div>
             <button type="submit" class="btn btn-success w-100">Login</button>
         </form>
-<p>Don't have an Account? <a class="btn btn-outline-primary" href="{% url 'memo:register' %}">Register Here</a></p>
-{% endblock%}
+        
+        <div class="text-center mt-3">
+            <p>Don't have an Account? <a class="btn btn-outline-primary" href="{% url 'memo:register' %}">Register Here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
