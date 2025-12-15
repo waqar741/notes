@@ -47,12 +47,10 @@ You must run the **Backend API** first before starting this application.
 
 3.  **Configuration**
     * Make sure this app is pointing to the correct backend URL (default: `http://127.0.0.1:8000/`).
-    * *(If you have a config.py or .env file, mention it here)*.
 
 4.  **Run the App**
     ```bash
     python app.py
-    # (Or python manage.py runserver if this is also Django)
     ```
 
 ## 🤝 Contributing
