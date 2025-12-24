@@ -1,6 +1,6 @@
-# HFP - Health Priority System (Frontend) 🏥
+# Notes Tracker (Frontend) 🏥
 
-**HFP** is the user-facing application for the Health First Priority system. It provides an interface for doctors and patients to interact with health data, which is securely stored and managed by a separate backend API.
+**Notes** is the user-facing application for the Notes Tracking system. It provides an interface for managing notes, which is securely stored and managed by a separate backend API.
 
 **Note:** This repository is the **Frontend Client**. It requires the Backend API to be running.
 
